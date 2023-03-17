@@ -3,6 +3,17 @@ import AlbumCard from "./AlbumCard";
 import { albums } from "../data/albums";
 
 function AlbumList() {
+  const albumList = albums.filter(
+    albumObj => albumObj.inLibrary
+  ).map(albumObj => {
+      return <AlbumCard 
+        key={albumObj.id}
+        name={albumObj.name}
+        image={albumObj.image}
+        genre={albumObj.genre}
+      />
+    })
+
   return (
     <section className="albums">
       <AlbumCard
@@ -27,6 +38,9 @@ function AlbumList() {
       />
     </section>
   );
-}
+  };
+
+    // <section className="albums">
+    // </section>
 
 export default AlbumList;
